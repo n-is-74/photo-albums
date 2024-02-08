@@ -1,14 +1,15 @@
 import axios from 'axios';
 import React from 'react';
+import CreateAlbum from '../pages/CreateAlbum';
 
-export default function NavBar({ user }) {
-  console.log(user);
+export default function NavBar({ user, users }) {
   const logoutHandler = async () => {
     const res = await axios.post('/api/auth/logout');
     if (res.status === 200) {
       window.location.href = '/';
     }
   };
+  console.log(users, 'klklk');
   return (
     <div>
       {' '}
@@ -41,12 +42,17 @@ export default function NavBar({ user }) {
             </a>
           </li> */}
               {user?.id ? (
-                <li className="nav-item">
-                  {/* <div>{`Добро пожаловать, ${user?.name}`}</div> */}
-                  <a className="nav-link d" href="/logout" onClick={logoutHandler}>
-                    Выход
-                  </a>
-                </li>
+                <>
+                  <li className="nav-item">
+                    <CreateAlbum users={users} />
+                  </li>
+                  <li className="nav-item">
+                    {/* <div>{`Добро пожаловать, ${user?.name}`}</div> */}
+                    <a className="nav-link d" href="/logout" onClick={logoutHandler}>
+                      Выход
+                    </a>
+                  </li>
+                </>
               ) : (
                 <li className="nav-item">
                   <a className="nav-link" href="/">

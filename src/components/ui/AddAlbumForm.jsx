@@ -1,38 +1,35 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Button, Col, Modal } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
+import { Button, Col, Form } from 'react-bootstrap';
 
-export default function AddAlbumForm({ users }) {
-  console.log(users);
+export default function AddAlbumForm({ users, setShowFormModal }) {
   const [album, setAlbum] = useState('');
   const [userUniqueValue, setUserUniqueValue] = useState('');
   const [isPrivate, setIsPrivate] = useState(false);
-  const [show, setShow] = useState(false);
+  const [userNotFoundError, setUserNotFoundError] = useState(false);
 
   const changeHandlerName = (e) => setAlbum(e.target.value);
   const changeHandlerUserUniqueValue = (e) => setUserUniqueValue(e.target.value);
-  const handleChangePrivacy = (e) => {
-    setIsPrivate(e.target.value === 'true');
-  };
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleChangePrivacy = (e) => setIsPrivate(e.target.value === 'true');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      album === '' ||
-      (isPrivate && userUniqueValue !== '' && !users.find((u) => u.email === userUniqueValue))
-    ) {
-      handleShow();
-    } else {
-      await axios.post('/api/album', {
-        name: album,
-        privates: !!isPrivate,
-        userUniqueValue,
-      });
+
+    if (album === '') {
+      return;
     }
+
+    if (isPrivate && userUniqueValue !== '' && !users.find((u) => u.email === userUniqueValue)) {
+      setUserNotFoundError(true);
+      return;
+    }
+
+    await axios.post('/api/album', {
+      name: album,
+      privates: !!isPrivate,
+      userUniqueValue,
+    });
+    setShowFormModal(false);
   };
 
   return (
@@ -47,42 +44,40 @@ export default function AddAlbumForm({ users }) {
               type="text"
               placeholder="Name"
             />
+            {album === '' && <div className="text-danger m-3">Please fill in the Album field</div>}
           </Form.Group>
           <Form.Group className="mb-3" controlId="albumOpisanie">
-            <Form.Label>Выберите приватность</Form.Label>
+            <Form.Label>Choose privacy</Form.Label>
             <Form.Select value={isPrivate.toString()} onChange={handleChangePrivacy} name="private">
-              <option value="false">Приватный</option>
-              <option value="false">Публичный</option>
-              <option value="true">Открыть доступ пользователю</option>
+              <option value="true">Private</option>
+              <option value="false">Public</option>
             </Form.Select>
           </Form.Group>
           {isPrivate && (
             <Form.Group className="mb-3" controlId="additionalInput">
-              <Form.Label>Введите уникальное значение пользователя</Form.Label>
+              <Form.Label>
+                Введите уникальный идентификатор пользователя, с которым вы хотите поделиться своим
+                альбомом. Если вы оставляете поле пустым, альбом будет виден только вам.
+              </Form.Label>
               <Form.Control
                 type="text"
                 value={userUniqueValue}
                 onChange={changeHandlerUserUniqueValue}
-                placeholder="Ввод"
+                placeholder="Input"
               />
             </Form.Group>
           )}
           <Col xs={8}>
-            <Button type="submit">Добавить</Button>
+            <Button type="submit">Add</Button>
           </Col>
         </Col>
       </Form>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Ошибка</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Пожалуйста, заполните все поля</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Закрыть
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {userNotFoundError && (
+        <div className="text-danger m-3">
+          Пользователь с указанным адресом электронной почты не найден. Пожалуйста, проверьте
+          введенный адрес электронной почты.
+        </div>
+      )}
     </>
   );
 }

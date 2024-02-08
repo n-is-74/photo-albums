@@ -1,17 +1,14 @@
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-// import MainPage from './pages/MainPage';
-// import AddAlbumForm from './pages/AddAlbumForm';
 import AuthPage from './pages/AuthPage';
-import AlbomPage from './pages/AlbomPage';
 import MainPage from './pages/MainPage';
+import AlbomPage from './pages/AlbomPage';
 
 const components = {
-  // AddAlbumForm,
+  AlbomPage,
   SignupPage,
   LoginPage,
   AuthPage,
-  AlbomPage,
-  MainPage
+  MainPage,
 };
 export default components;
