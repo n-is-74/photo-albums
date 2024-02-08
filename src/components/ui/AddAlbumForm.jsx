@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Button, Col, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 
-export default function AddAlbumForm({ user }) {
-  console.log(user);
+export default function AddAlbumForm({ users }) {
+  console.log(users);
   const [album, setAlbum] = useState('');
   const [userUniqueValue, setUserUniqueValue] = useState('');
   const [isPrivate, setIsPrivate] = useState(false);
@@ -23,7 +23,7 @@ export default function AddAlbumForm({ user }) {
     e.preventDefault();
     if (
       album === '' ||
-      (isPrivate && userUniqueValue !== '' && !user.find((u) => u.email === userUniqueValue))
+      (isPrivate && userUniqueValue !== '' && !users.find((u) => u.email === userUniqueValue))
     ) {
       handleShow();
     } else {

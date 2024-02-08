@@ -5,8 +5,8 @@ import { User } from '../../db/models';
 const albumRouter = express.Router();
 
 albumRouter.get('/', redirectIfNotAuth, async (req, res) => {
-  const user = await User.findAll();
-  res.render('AlbomPage', { user });
+  const users = await User.findAll();
+  res.render('AlbomPage', { users });
 });
 
 // albumRouter.get('/add', redirectIfNotAuth, async (req, res) => {
