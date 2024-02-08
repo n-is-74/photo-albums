@@ -51,9 +51,9 @@ export default function AddAlbumForm({ user }) {
           <Form.Group className="mb-3" controlId="albumOpisanie">
             <Form.Label>Выберите приватность</Form.Label>
             <Form.Select value={isPrivate.toString()} onChange={handleChangePrivacy} name="private">
-              <option value="true">Приватный</option>
+              <option value="false">Приватный</option>
               <option value="false">Публичный</option>
-              {/* <option value="true">Открыть доступ пользователю</option> */}
+              <option value="true">Открыть доступ пользователю</option>
             </Form.Select>
           </Form.Group>
           {isPrivate && (
