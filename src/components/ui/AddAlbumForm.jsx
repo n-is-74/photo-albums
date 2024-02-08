@@ -26,7 +26,7 @@ export default function AddAlbumForm({ users, setShowFormModal }) {
 
     await axios.post('/api/album', {
       name: album,
-      privates: isPrivate,
+      privates: !!isPrivate,
       userUniqueValue,
     });
     setShowFormModal(false);
@@ -37,20 +37,22 @@ export default function AddAlbumForm({ users, setShowFormModal }) {
       <Form className="m-3" onSubmit={handleSubmit}>
         <Col xs={8}>
           <Form.Group className="mb-3" controlId="album">
-            <Form.Label>Album</Form.Label>
+            <Form.Label>Название Альбома</Form.Label>
             <Form.Control
               value={album}
               onChange={changeHandlerName}
               type="text"
-              placeholder="Name"
+              placeholder="Имя"
             />
-            {album === '' && <div className="text-danger m-3">Please fill in the Album field</div>}
+            {album === '' && (
+              <div className="text-danger m-3">Пожалуйста, заполните поле ввода альбом</div>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="albumOpisanie">
-            <Form.Label>Choose privacy</Form.Label>
+            <Form.Label>Выберите режим доступа</Form.Label>
             <Form.Select value={isPrivate.toString()} onChange={handleChangePrivacy} name="private">
-              <option value="true">Private</option>
-              <option value="false">Public</option>
+              <option value="true">Приватный</option>
+              <option value="false">Публичный</option>
             </Form.Select>
           </Form.Group>
           {isPrivate && (
@@ -63,12 +65,12 @@ export default function AddAlbumForm({ users, setShowFormModal }) {
                 type="text"
                 value={userUniqueValue}
                 onChange={changeHandlerUserUniqueValue}
-                placeholder="Input"
+                placeholder="Ввод"
               />
             </Form.Group>
           )}
           <Col xs={8}>
-            <Button type="submit">Add</Button>
+            <Button type="submit">Создать альбом</Button>
           </Col>
         </Col>
       </Form>

@@ -9,10 +9,8 @@ export default function NavBar({ user, users }) {
       window.location.href = '/';
     }
   };
-  console.log(users, 'klklk');
   return (
     <div>
-      {' '}
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <button
@@ -35,19 +33,12 @@ export default function NavBar({ user, users }) {
                   </a>
                 </li>
               )}
-
-              {/* <li className="nav-item">
-            <a className="nav-link" href="/login">
-              Aвторизация
-            </a>
-          </li> */}
               {user?.id ? (
                 <>
                   <li className="nav-item">
                     <CreateAlbum users={users} />
                   </li>
                   <li className="nav-item">
-                    {/* <div>{`Добро пожаловать, ${user?.name}`}</div> */}
                     <a className="nav-link d" href="/logout" onClick={logoutHandler}>
                       Выход
                     </a>
