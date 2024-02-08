@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Button, Dropdown, Modal } from 'react-bootstrap';
 import AddAlbumForm from '../ui/AddAlbumForm';
 
-export default function AlbomPage({ user }) {
+export default function AlbomPage({ users }) {
   const [showFormModal, setShowFormModal] = useState(false);
-
+  console.log(users);
   return (
     <div>
       <Dropdown>
@@ -21,7 +21,7 @@ export default function AlbomPage({ user }) {
           <Modal.Title>Создание Альбома</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AddAlbumForm user={user} />
+          <AddAlbumForm users={users} />
         </Modal.Body>
       </Modal>
     </div>

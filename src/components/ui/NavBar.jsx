@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 
 export default function NavBar({ user }) {
+  console.log(user);
   const logoutHandler = async () => {
     const res = await axios.post('/api/auth/logout');
     if (res.status === 200) {
