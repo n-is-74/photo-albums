@@ -37,46 +37,47 @@ export default function AddAlbumForm({ users, setShowFormModal }) {
       <Form className="m-3" onSubmit={handleSubmit}>
         <Col xs={8}>
           <Form.Group className="mb-3" controlId="album">
-            <Form.Label>Album</Form.Label>
+            <Form.Label>Название Альбома</Form.Label>
             <Form.Control
               value={album}
               onChange={changeHandlerName}
               type="text"
-              placeholder="Name"
+              placeholder="Имя"
             />
             {album === '' && (
-              <div className="text-danger m-3">Please fill in the Album field</div>
+              <div className="text-danger m-3">Пожалуйста, заполните поле ввода альбом</div>
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="albumOpisanie">
-            <Form.Label>Choose privacy</Form.Label>
+            <Form.Label>Выберите режим доступа</Form.Label>
             <Form.Select value={isPrivate.toString()} onChange={handleChangePrivacy} name="private">
-              <option value="true">Private</option>
-              <option value="false">Public</option>
+              <option value="true">Приватный</option>
+              <option value="false">Публичный</option>
             </Form.Select>
           </Form.Group>
           {isPrivate && (
             <Form.Group className="mb-3" controlId="additionalInput">
               <Form.Label>
-                Enter the unique identifier of the user with whom you want to share your album. If
-                you leave the field empty, the album will be visible only to you.
+                Введите уникальный идентификатор пользователя, с которым вы хотите поделиться своим
+                альбомом. Если вы оставляете поле пустым, альбом будет виден только вам.
               </Form.Label>
               <Form.Control
                 type="text"
                 value={userUniqueValue}
                 onChange={changeHandlerUserUniqueValue}
-                placeholder="Input"
+                placeholder="Ввод"
               />
             </Form.Group>
           )}
           <Col xs={8}>
-            <Button type="submit">Add</Button>
+            <Button type="submit">Создать альбом</Button>
           </Col>
         </Col>
       </Form>
       {userNotFoundError && (
         <div className="text-danger m-3">
-          The user with the specified email address was not found. Please check the entered email.
+          Пользователь с указанным адресом электронной почты не найден. Пожалуйста, проверьте
+          введенный адрес электронной почты.
         </div>
       )}
     </>
