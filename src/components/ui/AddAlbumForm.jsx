@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Button, Col, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 
-export default function AddAlbumForm({ user }) {
-  console.log(user);
+export default function AddAlbumForm({ users }) {
+  console.log(users);
   const [album, setAlbum] = useState('');
   const [userUniqueValue, setUserUniqueValue] = useState('');
   const [isPrivate, setIsPrivate] = useState(false);
@@ -23,7 +23,7 @@ export default function AddAlbumForm({ user }) {
     e.preventDefault();
     if (
       album === '' ||
-      (isPrivate && userUniqueValue !== '' && !user.find((u) => u.email === userUniqueValue))
+      (isPrivate && userUniqueValue !== '' && !users.find((u) => u.email === userUniqueValue))
     ) {
       handleShow();
     } else {
@@ -38,7 +38,7 @@ export default function AddAlbumForm({ user }) {
   return (
     <>
       <Form className="m-3" onSubmit={handleSubmit}>
-        <Col xs={3}>
+        <Col xs={8}>
           <Form.Group className="mb-3" controlId="album">
             <Form.Label>Album</Form.Label>
             <Form.Control
@@ -51,9 +51,9 @@ export default function AddAlbumForm({ user }) {
           <Form.Group className="mb-3" controlId="albumOpisanie">
             <Form.Label>Выберите приватность</Form.Label>
             <Form.Select value={isPrivate.toString()} onChange={handleChangePrivacy} name="private">
-              <option value="true">Приватный</option>
+              <option value="false">Приватный</option>
               <option value="false">Публичный</option>
-              {/* <option value="true">Открыть доступ пользователю</option> */}
+              <option value="true">Открыть доступ пользователю</option>
             </Form.Select>
           </Form.Group>
           {isPrivate && (
@@ -67,7 +67,7 @@ export default function AddAlbumForm({ user }) {
               />
             </Form.Group>
           )}
-          <Col xs={3}>
+          <Col xs={8}>
             <Button type="submit">Добавить</Button>
           </Col>
         </Col>
