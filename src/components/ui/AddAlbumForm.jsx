@@ -38,7 +38,7 @@ export default function AddAlbumForm({ user }) {
   return (
     <>
       <Form className="m-3" onSubmit={handleSubmit}>
-        <Col xs={3}>
+        <Col xs={8}>
           <Form.Group className="mb-3" controlId="album">
             <Form.Label>Album</Form.Label>
             <Form.Control
@@ -67,7 +67,7 @@ export default function AddAlbumForm({ user }) {
               />
             </Form.Group>
           )}
-          <Col xs={3}>
+          <Col xs={8}>
             <Button type="submit">Добавить</Button>
           </Col>
         </Col>

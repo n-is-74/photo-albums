@@ -4,9 +4,13 @@ import { User } from '../../db/models';
 
 const albumRouter = express.Router();
 
-albumRouter.get('/add', redirectIfNotAuth, async (req, res) => {
+albumRouter.get('/', redirectIfNotAuth, async (req, res) => {
   const user = await User.findAll();
-  res.render('AddAlbumForm', { user });
+  res.render('AlbomPage', { user });
 });
+
+// albumRouter.get('/add', redirectIfNotAuth, async (req, res) => {
+//   res.render('AddAlbumForm');
+// });
 
 export default albumRouter;
