@@ -9,11 +9,12 @@ export default function SignupPage() {
     password: '',
     name: '',
   });
-  const handleChange = (event) =>
+  const handleChange = (event) => {
     setFormData((prev) => ({
       ...prev,
       [event.target.name]: event.target.value,
     }));
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (formData.name === '' || formData.email === '') {
@@ -61,7 +62,7 @@ export default function SignupPage() {
       </Form.Group>
 
       <Button variant="primary" type="submit">
-        Signup
+        Зарегистрироваться
       </Button>
     </Form>
   );

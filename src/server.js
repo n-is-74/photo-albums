@@ -3,7 +3,6 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import path from 'path';
-// import { jsxRender } from './utils/jsxRender'; // Предполагаемый модуль для рендеринга JSX
 import resLocals from './middlewares/resLocals';
 import apiAuthRouter from './routes/auth';
 // import albumsRouter from './routes/albums';
@@ -11,7 +10,6 @@ import apiAuthRouter from './routes/auth';
 // import cookieParser from 'cookie-parser';
 // import 'dotenv/config';
 import jsxRender from './utils/jsxRender';
-import MainPage from './routes/MainPage';
 // import resLocals from './middlewares/resLocals';
 import albumRouter from './routes/AlbumRouter';
 import authRouter from './routes/authRouter';
@@ -37,10 +35,7 @@ app.use('/auth', authRouter);
 // app.use('/folders', albumsRouter);
 // app.use('/folders/:id/photos', photosRouter);
 
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`);
-// });
-app.use('/', MainPage);
+app.use('/', authRouter);
 app.use('/album', albumRouter);
 app.use('/api/album', apiAlbumRouter);
 
