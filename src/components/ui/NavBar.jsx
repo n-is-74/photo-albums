@@ -29,7 +29,7 @@ export default function NavBar({ user, users }) {
               {user?.id && (
                 <li className="nav-item">
                   <a className="navbar-brand" href="/album">
-                    Album
+                    Альбом
                   </a>
                 </li>
               )}
