@@ -26,7 +26,7 @@ export default function AddAlbumForm({ users, setShowFormModal }) {
 
     await axios.post('/api/album', {
       name: album,
-      privates: isPrivate,
+      privates: !!isPrivate,
       userUniqueValue,
     });
     setShowFormModal(false);
@@ -44,7 +44,9 @@ export default function AddAlbumForm({ users, setShowFormModal }) {
               type="text"
               placeholder="Name"
             />
-            {album === '' && <div className="text-danger m-3">Please fill in the Album field</div>}
+            {album === '' && (
+              <div className="text-danger m-3">Please fill in the Album field</div>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="albumOpisanie">
             <Form.Label>Choose privacy</Form.Label>
@@ -56,8 +58,8 @@ export default function AddAlbumForm({ users, setShowFormModal }) {
           {isPrivate && (
             <Form.Group className="mb-3" controlId="additionalInput">
               <Form.Label>
-                Введите уникальный идентификатор пользователя, с которым вы хотите поделиться своим
-                альбомом. Если вы оставляете поле пустым, альбом будет виден только вам.
+                Enter the unique identifier of the user with whom you want to share your album. If
+                you leave the field empty, the album will be visible only to you.
               </Form.Label>
               <Form.Control
                 type="text"
@@ -74,8 +76,7 @@ export default function AddAlbumForm({ users, setShowFormModal }) {
       </Form>
       {userNotFoundError && (
         <div className="text-danger m-3">
-          Пользователь с указанным адресом электронной почты не найден. Пожалуйста, проверьте
-          введенный адрес электронной почты.
+          The user with the specified email address was not found. Please check the entered email.
         </div>
       )}
     </>

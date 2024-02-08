@@ -17,7 +17,7 @@ import apiAlbumRouter from './routes/apiAlbumRouter';
 import mainRouter from './routes/mainRouter';
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 app.engine('jsx', jsxRender);
 app.set('view engine', 'jsx');

@@ -41,7 +41,7 @@ export default function Layout({ children, initState }) {
           }}
         />
 
-        <title>Document</title>
+        <title>Диск</title>
       </head>
       <body>
         <div id="root">{children}</div>
