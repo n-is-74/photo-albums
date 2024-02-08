@@ -49,7 +49,7 @@ export default function NavBar({ user }) {
                 </li>
               ) : (
                 <li className="nav-item">
-                  <a className="nav-link" href="/auth">
+                  <a className="nav-link" href="/">
                     Вход
                   </a>
                 </li>

@@ -23,7 +23,7 @@ export default function SignupPage() {
     }
     const response = await axios.post('/api/auth/signup', formData);
     if (response.status === 201) {
-      window.location.href = '/';
+      window.location.href = '/main';
     }
   };
   return (

@@ -4,6 +4,7 @@ import SignupPage from './pages/SignupPage';
 // import AddAlbumForm from './pages/AddAlbumForm';
 import AuthPage from './pages/AuthPage';
 import AlbomPage from './pages/AlbomPage';
+import MainPage from './pages/MainPage';
 
 const components = {
   // AddAlbumForm,
@@ -11,5 +12,6 @@ const components = {
   LoginPage,
   AuthPage,
   AlbomPage,
+  MainPage
 };
 export default components;

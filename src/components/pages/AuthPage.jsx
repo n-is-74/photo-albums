@@ -17,7 +17,7 @@ function AuthPage() {
       </div>
       <div>
         <a
-          href="/"
+          href="/signup"
           style={{
             padding: '10px 20px',
             backgroundColor: '#007bff',
