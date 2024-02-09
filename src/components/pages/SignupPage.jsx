@@ -23,7 +23,7 @@ export default function SignupPage() {
     }
     const response = await axios.post('/api/auth/signup', formData);
     if (response.status === 200) {
-      window.location.href = '/album';
+      window.location.href = '/albums';
     }
   };
   return (
