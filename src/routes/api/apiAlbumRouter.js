@@ -3,26 +3,26 @@ import { Album, Access, User } from '../../../db/models';
 
 const apiAlbumRouter = express.Router();
 
-// Получение списка альбомов, доступных пользователю
-apiAlbumRouter.get('/', async (req, res) => {
-  const { user } = req.locals;
-  const userId = user.id;
+// // Получение списка альбомов, доступных пользователю
+// apiAlbumRouter.get('/', async (req, res) => {
+//   const { user } = req.locals;
+//   const userId = user.id;
 
-  try {
-    // Получение всех альбомов, к которым у пользователя есть доступ
-    const accesses = await Access.findAll({
-      where: { userAccessId: userId },
-      include: [{ model: Album }],
-    });
+//   try {
+//     // Получение всех альбомов, к которым у пользователя есть доступ
+//     const accesses = await Access.findAll({
+//       where: { userAccessId: userId },
+//       include: [{ model: Album }],
+//     });
 
-    // Используем деструктуризацию для извлечения альбомов
-    const accessibleAlbums = accesses.map(({ Albums }) => Albums);
+//     // Используем деструктуризацию для извлечения альбомов
+//     const accessibleAlbums = accesses.map(({ Albums }) => Albums);
 
-    res.json({ accessibleAlbums });
-  } catch (error) {
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
+//     res.json({ accessibleAlbums });
+//   } catch (error) {
+//     res.status(500).json({ message: 'Internal server error' });
+//   }
+// });
 
 apiAlbumRouter.post('/', async (req, res) => {
   try {

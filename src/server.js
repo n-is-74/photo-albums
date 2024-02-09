@@ -26,12 +26,11 @@ app.use(cookieParser());
 app.use(resLocals);
 
 app.use('/api/auth', apiAuthRouter);
-// app.use('/auth', authRouter);
-// app.use('/folders', albumsRouter);
+app.use('/api/album', apiAlbumRouter);
+
 // app.use('/folders/:id/photos', photosRouter);
 
 app.use('/', authRouter);
 app.use('/album', albumRouter);
-app.use('/api/album', apiAlbumRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

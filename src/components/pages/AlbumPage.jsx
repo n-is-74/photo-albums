@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function AlbomPage({ album }) {
+export default function AlbumPage({ album }) {
   console.log(album);
 
   return <div>AlbomPage</div>;

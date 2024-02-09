@@ -1,9 +1,9 @@
 import SignupPage from './pages/SignupPage';
 import AuthPage from './pages/AuthPage';
-import AlbomPage from './pages/AlbomPage';
+import AlbumPage from './pages/AlbumPage';
 
 const components = {
-  AlbomPage,
+  AlbumPage,
   SignupPage,
   AuthPage,
 };
