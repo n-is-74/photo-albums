@@ -7,21 +7,21 @@ const albumRouter = express.Router();
 albumRouter.get('/', redirectIfNotAuth, async (req, res) => {
   // const users = await User.findAll();
   // const album = await Album.findAll();
-  // Получение списка альбомов, доступных пользователю
-  const { user } = req.locals;
+  const { user } = res.locals;
   const userId = user.id;
 
   try {
     // Получение всех альбомов, к которым у пользователя есть доступ
     const accesses = await Access.findAll({
-      where: { userAccessId: userId },
+      where: { user_id: userId },
       include: [{ model: Album }],
     });
 
     // Используем деструктуризацию для извлечения альбомов
     const accessibleAlbums = accesses.map(({ Albums }) => Albums);
+    res.render('AlbumPage', { accessibleAlbums });
 
-    res.res.render('AlbumPage', { accessibleAlbums });
+    // res.json({ accessibleAlbums });
   } catch (error) {
     res.status(500).json({ message: 'Internal server error' });
   }

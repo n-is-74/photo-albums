@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function AlbumPage({ album }) {
-  console.log(album);
+export default function AlbumPage({ accessibleAlbums }) {
+  console.log(accessibleAlbums);
 
-  return <div>AlbomPage</div>;
+  return <div>AlbumPage</div>;
 }

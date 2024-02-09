@@ -3,7 +3,7 @@ import { Album, Access, User } from '../../../db/models';
 
 const apiAlbumRouter = express.Router();
 
-// // Получение списка альбомов, доступных пользователю
+// Получение списка альбомов, доступных пользователю
 // apiAlbumRouter.get('/', async (req, res) => {
 //   const { user } = req.locals;
 //   const userId = user.id;
