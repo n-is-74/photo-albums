@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Col, Form } from 'react-bootstrap';
 
-export default function AddAlbumForm({ users, setShowFormModal }) {
+export default function AddAlbumForm({ user, setShowFormModal }) {
   const [album, setAlbum] = useState('');
   const [userUniqueValue, setUserUniqueValue] = useState('');
   const [isPrivate, setIsPrivate] = useState(false);
@@ -19,7 +19,7 @@ export default function AddAlbumForm({ users, setShowFormModal }) {
       return;
     }
 
-    if (isPrivate && userUniqueValue !== '' && !users.find((u) => u.email === userUniqueValue)) {
+    if (isPrivate && userUniqueValue !== '' && !user.find((u) => u.email === userUniqueValue)) {
       setUserNotFoundError(true);
       return;
     }
