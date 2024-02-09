@@ -36,7 +36,7 @@ export default function OneAlbumPage() {
 
   return (
     <Form className="m-3" onSubmit={handleSubmit}>
-      <Col xs={6}>
+      <Col xs={4}>
         <Form.Group className="mb-3" controlId="photo">
           <Form onSubmit={editProfilePic}>
             <Form.Group controlId="formFile" className="mb-3">
