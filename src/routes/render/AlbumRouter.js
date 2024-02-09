@@ -15,19 +15,13 @@ albumRouter.get('/', redirectIfNotAuth, async (req, res) => {
       attributes: ['album_id'], // Получаем только ID альбомов
     });
 
-    console.log('1------>', accessEntries);
-
     // Извлекаем ID альбомов
     const albumIds = accessEntries.map((access) => access.album_id);
-
-    console.log('2------>', albumIds);
 
     // Получаем альбомы по этим ID
     const accessibleAlbums = await Album.findAll({
       where: { id: albumIds },
     });
-
-    console.log('3------>', accessibleAlbums);
 
     res.render('AlbumPage', { accessibleAlbums });
   } catch (error) {
@@ -35,9 +29,5 @@ albumRouter.get('/', redirectIfNotAuth, async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
-
-// albumRouter.get('/add', redirectIfNotAuth, async (req, res) => {
-//   res.render('AddAlbumForm');
-// });
 
 export default albumRouter;
