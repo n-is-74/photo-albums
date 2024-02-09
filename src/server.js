@@ -7,6 +7,7 @@ import resLocals from './middlewares/resLocals';
 import apiAuthRouter from './routes/api/apiAuthRouter';
 import jsxRender from './utils/jsxRender';
 import albumRouter from './routes/render/AlbumRouter';
+import photoRouter from './routes/render/PhotoRouter';
 import authRouter from './routes/render/authRouter';
 import apiAlbumRouter from './routes/api/apiAlbumRouter';
 
@@ -32,6 +33,6 @@ app.use('/api/album', apiAlbumRouter);
 
 app.use('/', authRouter);
 app.use('/albums', albumRouter);
-app.use('/albums/:id', albumRouter);
+app.use('/albums', photoRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

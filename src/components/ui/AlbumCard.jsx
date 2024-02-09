@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Button, Card, Image, Col, Row,
-} from 'react-bootstrap';
+import { Button, Card, Image, Col, Row } from 'react-bootstrap';
 
 export default function AlbumCard({ uniqueAlbum, key }) {
   console.log(uniqueAlbum, key);
@@ -16,7 +14,9 @@ export default function AlbumCard({ uniqueAlbum, key }) {
         <Card.Body>
           <Card.Title>{uniqueAlbum.a_name}</Card.Title>
 
-          <Button variant="primary">Go somewhere</Button>
+          <Button href={`/albums/${uniqueAlbum.id}`} variant="primary">
+            Go somewhere
+          </Button>
         </Card.Body>
       </Card>
     </div>
