@@ -1,8 +1,8 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import { User } from '../../db/models';
-import generateTokens from '../utils/generateTokens';
-import cookiesConfig from '../config/cookiesConfig';
+import { User } from '../../../db/models';
+import generateTokens from '../../utils/generateTokens';
+import cookiesConfig from '../../config/cookiesConfig';
 
 const apiAuthRouter = express.Router();
 
@@ -26,7 +26,9 @@ apiAuthRouter.post('/signup', async (req, res) => {
   }
   // Юзер содан, записать куки
   const user = {
-    id: newUser.id, name: newUser.name, email: newUser.email,
+    id: newUser.id,
+    name: newUser.name,
+    email: newUser.email,
   };
   const { accessToken, refreshToken } = generateTokens({ user });
   res
@@ -58,7 +60,9 @@ apiAuthRouter.post('/signin', async (req, res) => {
 
   // Юзер залогинен, записать куки
   const user = {
-    id: targetUser.id, name: targetUser.name, email: targetUser.email,
+    id: targetUser.id,
+    name: targetUser.name,
+    email: targetUser.email,
   };
   const { accessToken, refreshToken } = generateTokens({ user });
   res
@@ -68,10 +72,7 @@ apiAuthRouter.post('/signin', async (req, res) => {
 });
 
 apiAuthRouter.post('/logout', (req, res) => {
-  res
-    .clearCookie('accessToken')
-    .clearCookie('refreshToken')
-    .sendStatus(200);
+  res.clearCookie('accessToken').clearCookie('refreshToken').sendStatus(200);
 });
 
 export default apiAuthRouter;

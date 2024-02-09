@@ -1,6 +1,6 @@
 import express from 'express';
-import redirectIfNotAuth from '../middlewares/redirectIfNotAuth';
-import { Album } from '../../db/models';
+import redirectIfNotAuth from '../../middlewares/redirectIfNotAuth';
+import { Album } from '../../../db/models';
 
 const albumRouter = express.Router();
 

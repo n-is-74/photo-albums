@@ -1,5 +1,5 @@
 import express from 'express';
-import { Album, Access, User } from '../../db/models';
+import { Album, Access, User } from '../../../db/models';
 
 const apiAlbumRouter = express.Router();
 

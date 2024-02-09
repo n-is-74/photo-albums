@@ -4,17 +4,11 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import path from 'path';
 import resLocals from './middlewares/resLocals';
-import apiAuthRouter from './routes/apiAuthRouter';
-// import albumsRouter from './routes/albums';
-// import photosRouter from './routes/photos';
-// import cookieParser from 'cookie-parser';
-// import 'dotenv/config';
+import apiAuthRouter from './routes/api/apiAuthRouter';
 import jsxRender from './utils/jsxRender';
-// import resLocals from './middlewares/resLocals';
-import albumRouter from './routes/AlbumRouter';
-import authRouter from './routes/authRouter';
-import apiAlbumRouter from './routes/apiAlbumRouter';
-import mainRouter from './routes/mainRouter';
+import albumRouter from './routes/render/AlbumRouter';
+import authRouter from './routes/render/authRouter';
+import apiAlbumRouter from './routes/api/apiAlbumRouter';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -37,7 +31,6 @@ app.use('/api/auth', apiAuthRouter);
 // app.use('/folders/:id/photos', photosRouter);
 
 app.use('/', authRouter);
-app.use('/main', mainRouter);
 app.use('/album', albumRouter);
 app.use('/api/album', apiAlbumRouter);
 
