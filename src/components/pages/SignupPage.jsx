@@ -22,8 +22,8 @@ export default function SignupPage() {
       return;
     }
     const response = await axios.post('/api/auth/signup', formData);
-    if (response.status === 201) {
-      window.location.href = '/album';
+    if (response.status === 200) {
+      window.location.href = '/albums';
     }
   };
   return (
