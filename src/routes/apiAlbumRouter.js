@@ -36,7 +36,6 @@ apiAlbumRouter.post('/', async (req, res) => {
     });
 
     const userUnique = await User.findOne({ where: { email: userUniqueValue } });
-    console.log(userUnique, '=========>');
 
     if (userUnique) {
       await Access.create({
