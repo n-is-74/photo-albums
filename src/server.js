@@ -9,7 +9,6 @@ import jsxRender from './utils/jsxRender';
 import albumRouter from './routes/render/AlbumRouter';
 import authRouter from './routes/render/authRouter';
 import apiAlbumRouter from './routes/api/apiAlbumRouter';
-import mainRouter from './routes/render/mainRouter';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,7 +31,6 @@ app.use('/api/auth', apiAuthRouter);
 // app.use('/folders/:id/photos', photosRouter);
 
 app.use('/', authRouter);
-app.use('/main', mainRouter);
 app.use('/album', albumRouter);
 app.use('/api/album', apiAlbumRouter);
 
