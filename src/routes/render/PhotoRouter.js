@@ -4,7 +4,7 @@ import { Photo } from '../../../db/models';
 
 const photoRouter = express.Router();
 
-photoRouter.get('/', redirectIfNotAuth, async (req, res) => {
+photoRouter.get('/:albumId', redirectIfNotAuth, async (req, res) => {
   const { albumId } = req.params;
   try {
     // Получение фотографий, принадлежащих данному альбому
@@ -12,7 +12,7 @@ photoRouter.get('/', redirectIfNotAuth, async (req, res) => {
       where: { album_id: albumId },
     });
 
-    res.render('PhotoPage', { photos });
+    res.render('OneAlbumPage', { photos });
     // res.json({ photos });
   } catch (error) {
     console.error(error);

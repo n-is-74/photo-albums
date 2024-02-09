@@ -33,6 +33,6 @@ app.use('/api/album', apiAlbumRouter);
 
 app.use('/', authRouter);
 app.use('/albums', albumRouter);
-app.use('/albums/:id', photoRouter);
+app.use('/albums', photoRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

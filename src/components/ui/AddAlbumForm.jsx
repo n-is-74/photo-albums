@@ -26,7 +26,7 @@ export default function AddAlbumForm({ users, setShowFormModal }) {
 
     await axios.post('/api/album', {
       name: album,
-      privates: !!isPrivate,
+      privates: isPrivate,
       userUniqueValue,
     });
     setShowFormModal(false);
