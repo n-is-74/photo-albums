@@ -4,9 +4,7 @@ import { Col, Image, Row } from 'react-bootstrap';
 export default function MainPage() {
   return (
     <Row>
-      <Col xs={12}>
-        <Image src="/images/start-logo.jpg" style={{ width: '100%' }} />
-      </Col>
+      <Image src="/images/Razrabotka-sayta.jpg" style={{ width: '150%' }} />
     </Row>
   );
 }
