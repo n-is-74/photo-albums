@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Image, Row } from 'react-bootstrap';
+import { Image, Row } from 'react-bootstrap';
 
 export default function MainPage() {
   return (
