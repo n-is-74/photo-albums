@@ -10,7 +10,7 @@ export default function LoginForm() {
     console.log(event.target);
     const res = await axios.post('/api/auth/signin', fromData);
     if (res.status === 200) {
-      window.location.href = '/main';
+      window.location.href = '/album';
     }
   };
   return (
