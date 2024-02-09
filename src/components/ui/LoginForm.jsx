@@ -3,7 +3,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-export default function LoginPage() {
+export default function LoginForm() {
   const submitHandler = async (event) => {
     event.preventDefault();
     const fromData = Object.fromEntries(new FormData(event.target));

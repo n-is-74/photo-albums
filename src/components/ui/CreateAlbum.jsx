@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Dropdown, Modal } from 'react-bootstrap';
-import AddAlbumForm from '../ui/AddAlbumForm';
+import AddAlbumForm from './AddAlbumForm';
 
 export default function CreateAlbum({ users }) {
   const [showFormModal, setShowFormModal] = useState(false);

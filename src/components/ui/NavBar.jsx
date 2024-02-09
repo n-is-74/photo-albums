@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import CreateAlbum from '../pages/CreateAlbum';
+import CreateAlbum from './CreateAlbum';
 
 export default function NavBar({ user, users }) {
   const logoutHandler = async () => {
@@ -39,7 +39,7 @@ export default function NavBar({ user, users }) {
                     <CreateAlbum users={users} />
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link d" href="/logout" onClick={logoutHandler}>
+                    <a className="nav-link d" onClick={logoutHandler}>
                       Выход
                     </a>
                   </li>

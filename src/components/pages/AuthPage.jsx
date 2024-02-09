@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginPage from './LoginPage';
+import LoginForm from '../ui/LoginForm';
 
 function AuthPage() {
   return (
@@ -13,7 +13,7 @@ function AuthPage() {
       }}
     >
       <div style={{ marginBottom: '20px' }}>
-        <LoginPage />
+        <LoginForm />
       </div>
       <div>
         <a

@@ -1,5 +1,5 @@
 import express from 'express';
-import redirectIfAuth from '../middlewares/redirectIfAuth';
+import redirectIfAuth from '../../middlewares/redirectIfAuth';
 
 const authRouter = express.Router();
 
